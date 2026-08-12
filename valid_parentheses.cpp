@@ -3,14 +3,20 @@
 #include <string>
 using namespace std;
 
-bool isValid(string s) {
+bool isValid(string s)
+{
     stack<char> st;
 
-    for (char c : s) {
-        if (c == '(' || c == '{' || c == '[') {
+    for (char c : s)
+    {
+
+        if (c == '(' || c == '{' || c == '[')
+        {
             st.push(c);
         }
-        else {
+        else if (c == ')' || c == '}' || c == ']')
+        {
+
             if (st.empty())
                 return false;
 
@@ -18,15 +24,20 @@ bool isValid(string s) {
 
             if ((c == ')' && top != '(') ||
                 (c == '}' && top != '{') ||
-                (c == ']' && top != '[')) {
+                (c == ']' && top != '['))
+            {
                 return false;
             }
 
             st.pop();
         }
+        else
+        {
+            return false; // invalid character
+        }
     }
 
-    return true;
+    return st.empty();
 }
 
 int main() {
