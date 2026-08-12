@@ -33,7 +33,7 @@ bool isValid(string s)
         }
         else
         {
-            return false; // invalid character
+            return false; 
         }
     }
 
